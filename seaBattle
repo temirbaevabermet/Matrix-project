@@ -1,0 +1,126 @@
+import java.util.Scanner;
+public class Main
+{
+	public static void main(String[] args) {
+		Scanner scanner = new Scanner(System.in);
+		System.out.print("Enter your name: ");
+		String playerName = scanner.nextLine();
+		playerGreeting(playerName);
+		
+		int[][] playingField = {{0,0,0,0,0,0,0},
+		                        {0,0,0,0,0,0,0},
+		                        {0,0,0,0,0,0,0},
+		                        {0,0,0,0,0,0,0},
+		                        {0,0,0,0,0,0,0},
+		                        {0,0,0,0,0,0,0},
+		                        {0,0,0,0,0,0,0}};
+		
+		int startOfRange=0;
+		int endOfRange=6;
+		int firstСoordinateThreeCellShip=playingField[0][0];
+		int firstСoordinateThreeCellShipRow = startOfRange + (int)(Math.random() * (endOfRange - startOfRange + 1));
+		int firstСoordinateThreeCellShipColumn = startOfRange + (int)(Math.random() * (endOfRange - startOfRange + 1));
+		int a=firstСoordinateThreeCellShipRow;
+		int b=firstСoordinateThreeCellShipColumn;
+		System.out.println(firstСoordinateThreeCellShipRow);
+	    System.out.println(firstСoordinateThreeCellShipColumn);
+		for (int i=0; i<7; i++){
+	        for(int j=0; j<7; j++){
+	            playingField[firstСoordinateThreeCellShipRow][firstСoordinateThreeCellShipColumn]=5;
+	            firstСoordinateThreeCellShip=playingField[firstСoordinateThreeCellShipRow][firstСoordinateThreeCellShipColumn];
+	        }
+	    }
+	    int startOfRange1=1;
+	    int endOfRange1=2;
+	    int verticalOrHorizontal=startOfRange1 + (int)(Math.random() * (endOfRange1 - startOfRange1 + 1));
+	    System.out.println(verticalOrHorizontal);
+	    int secondСoordinateThreeCellShipRow=0;
+		int secondСoordinateThreeCellShipColumn=0;
+	    if(verticalOrHorizontal==1){
+	        if(b==6){
+	            secondСoordinateThreeCellShipRow=firstСoordinateThreeCellShipRow;
+	            secondСoordinateThreeCellShipColumn=firstСoordinateThreeCellShipColumn-1;
+	        }
+	        else{
+	            secondСoordinateThreeCellShipRow=firstСoordinateThreeCellShipRow;
+	            secondСoordinateThreeCellShipColumn=firstСoordinateThreeCellShipColumn+1;
+	        }
+	    }
+	    if(verticalOrHorizontal==2){
+	        if(a==6){
+	            secondСoordinateThreeCellShipColumn=firstСoordinateThreeCellShipColumn;
+	            secondСoordinateThreeCellShipRow=firstСoordinateThreeCellShipRow-1;
+	        }
+	        else{
+	            secondСoordinateThreeCellShipColumn=firstСoordinateThreeCellShipColumn;
+	            secondСoordinateThreeCellShipRow=firstСoordinateThreeCellShipRow+1;
+	        }
+	    }
+	    int c=secondСoordinateThreeCellShipRow;
+	    int d=secondСoordinateThreeCellShipColumn;
+	    System.out.println(secondСoordinateThreeCellShipRow);
+	    System.out.println(secondСoordinateThreeCellShipColumn);
+	    int secondСoordinateThreeCellShip=playingField[0][0];
+	    for (int i=0; i<7; i++){
+	        for(int j=0; j<7; j++){
+	            playingField[secondСoordinateThreeCellShipRow][secondСoordinateThreeCellShipColumn]=5;
+	            secondСoordinateThreeCellShip=playingField[secondСoordinateThreeCellShipRow][secondСoordinateThreeCellShipColumn];
+	        }
+	    }
+	    int thirdСoordinateThreeCellShipRow=0;
+		int thirdСoordinateThreeCellShipColumn=0;
+	    if(verticalOrHorizontal==1){
+	        if(b==6){
+	            thirdСoordinateThreeCellShipRow=firstСoordinateThreeCellShipRow;
+	            thirdСoordinateThreeCellShipColumn=secondСoordinateThreeCellShipColumn-1;
+	        }
+	        if(d==6){
+	            thirdСoordinateThreeCellShipRow=firstСoordinateThreeCellShipRow;
+	            thirdСoordinateThreeCellShipColumn=firstСoordinateThreeCellShipColumn-1;
+	        }
+	        else{
+	            thirdСoordinateThreeCellShipRow=firstСoordinateThreeCellShipRow;
+	            thirdСoordinateThreeCellShipColumn=secondСoordinateThreeCellShipColumn+1;
+	        }
+	    }
+	    if(verticalOrHorizontal==2){
+	        if(a==6){
+	            thirdСoordinateThreeCellShipColumn=firstСoordinateThreeCellShipColumn;
+	            thirdСoordinateThreeCellShipRow=secondСoordinateThreeCellShipRow-1;
+	        }
+	        if(c==6){
+	            thirdСoordinateThreeCellShipColumn=firstСoordinateThreeCellShipColumn;
+	            thirdСoordinateThreeCellShipRow=firstСoordinateThreeCellShipRow-1;
+	        }
+	        else{
+	            thirdСoordinateThreeCellShipColumn=firstСoordinateThreeCellShipColumn;
+	            thirdСoordinateThreeCellShipRow=secondСoordinateThreeCellShipRow+1;
+	        }
+	    }
+	    
+	    
+	    System.out.println(thirdСoordinateThreeCellShipRow);
+	    System.out.println(thirdСoordinateThreeCellShipColumn);
+	    int thirdСoordinateThreeCellShip=playingField[0][0];
+	    for (int i=0; i<7; i++){
+	        for(int j=0; j<7; j++){
+	            playingField[thirdСoordinateThreeCellShipRow][thirdСoordinateThreeCellShipColumn]=5;
+	            thirdСoordinateThreeCellShip=playingField[thirdСoordinateThreeCellShipRow][thirdСoordinateThreeCellShipColumn];
+	        }
+	    }
+	    
+	    for(int i=0; i<playingField.length; i++){
+	        for(int j=0; j<playingField[i].length; j++){
+	            System.out.print(playingField[i][j]+" ");
+	        }
+	        System.out.println();
+	    }
+	    
+		
+		
+
+	}
+	public static void playerGreeting(String playerName){
+	    System.out.println("Hello,"+playerName+"! Let's start our sea battle!");
+	}
+}

@@ -144,6 +144,43 @@ public class Main
 	                playingField[thirdСoordinateThreeCellShipRow][thirdColumn1]=1;
 	            }
 	        }
+
+			if(verticalOrHorizontal==2){
+	        for (int i=-1; i<=1; i++){
+	            for(int j=-1; j<=1; j++){
+	                int firstRow=firstСoordinateThreeCellShipRow+i;
+	                int firstColumn=firstСoordinateThreeCellShipColumn+j;
+	                int secondRow=secondСoordinateThreeCellShipRow+i;
+	                int secondColumn=secondСoordinateThreeCellShipColumn+j;
+	                int thirdRow=thirdСoordinateThreeCellShipRow+i;
+	                int thirdColumn=thirdСoordinateThreeCellShipColumn+j;
+	                if(firstRow>=0 && firstRow<7 && firstColumn>=0 && firstColumn<7 && secondRow>=0 && secondRow<7 && secondColumn>=0 && secondColumn<7 && thirdRow>=0 && thirdRow<7 && thirdColumn>=0 && thirdColumn<7 && playingField[firstRow][firstColumn]!=5 && playingField[secondRow][secondColumn]!=5 && playingField[thirdRow][thirdColumn]!=5){
+	                    playingField[firstRow][firstColumn]=1;
+	                    playingField[secondRow][secondColumn]=1;
+	                    playingField[thirdRow][thirdColumn]=1;
+	                }
+	                
+	            }
+	        }
+	        for(int i=-1; i<=1; i++){
+	            int firstRow1 = firstСoordinateThreeCellShipRow+i;
+	            if(firstRow1>=0 && firstRow1<7 && playingField[firstRow1][firstСoordinateThreeCellShipColumn]!=5){
+	                playingField[firstRow1][firstСoordinateThreeCellShipColumn]=1;
+	            }
+	        }
+	        for(int i=-1; i<=1; i++){
+	            int secondRow1 = secondСoordinateThreeCellShipRow+i;
+	            if(secondRow1>=0 && secondRow1<7 && playingField[secondRow1][secondСoordinateThreeCellShipColumn]!=5){
+	                playingField[secondRow1][secondСoordinateThreeCellShipColumn]=1;
+	            }
+	        }
+	        for(int i=-1; i<=1; i++){
+	            int thirdRow1 = thirdСoordinateThreeCellShipRow+i;
+	            if(thirdRow1>=0 && thirdRow1<7 && playingField[thirdRow1][thirdСoordinateThreeCellShipColumn]!=5){
+	                playingField[thirdRow1][thirdСoordinateThreeCellShipColumn]=1;
+	            }
+	        }
+	    }
 	        
 	        
 	    }

@@ -194,6 +194,41 @@ public class Main
 		if(playingField[firstСoordinateTwoCellShipRow][firstСoordinateTwoCellShipColumn]==0){
 		        playingField[firstСoordinateTwoCellShipRow][firstСoordinateTwoCellShipColumn]=3;
 		}
+
+		int secondСoordinateTwoCellShipRow = startOfRange + (int)(Math.random() * (endOfRange - startOfRange + 1));
+		int secondСoordinateTwoCellShipColumn = startOfRange + (int)(Math.random() * (endOfRange - startOfRange + 1));
+		int e=firstСoordinateTwoCellShipColumn;
+		int f=firstСoordinateTwoCellShipRow;
+		if((verticalOrHorizontal==1)&&(playingField[firstСoordinateTwoCellShipRow][firstСoordinateTwoCellShipColumn+1]==0||playingField[firstСoordinateTwoCellShipRow][firstСoordinateTwoCellShipColumn-1]==0)){
+	        if(b==6){
+	            secondСoordinateTwoCellShipRow=firstСoordinateTwoCellShipRow;
+	            secondСoordinateTwoCellShipColumn=firstСoordinateTwoCellShipColumn-1;
+	        }
+	        else{
+	            secondСoordinateTwoCellShipRow=firstСoordinateTwoCellShipRow;
+	            secondСoordinateTwoCellShipColumn=firstСoordinateTwoCellShipColumn+1;
+	        }
+	    }
+	    else{
+	        verticalOrHorizontal=2;
+	    }
+	    if((verticalOrHorizontal==2)&&(playingField[firstСoordinateTwoCellShipRow-1][firstСoordinateTwoCellShipColumn]==0||playingField[firstСoordinateTwoCellShipRow+1][firstСoordinateTwoCellShipColumn]==0)){
+	        if(f==6){
+	            secondСoordinateTwoCellShipColumn=firstСoordinateTwoCellShipColumn;
+	            secondСoordinateTwoCellShipRow=firstСoordinateTwoCellShipRow-1;
+	        }
+	        else{
+	            secondСoordinateTwoCellShipColumn=firstСoordinateTwoCellShipColumn;
+	            secondСoordinateTwoCellShipRow=firstСoordinateTwoCellShipRow+1;
+	        }
+	    }
+	    int secondСoordinateTwoCellShip=playingField[0][0];
+	    for (int i=0; i<7; i++){
+	        for(int j=0; j<7; j++){
+	            playingField[secondСoordinateTwoCellShipRow][secondСoordinateTwoCellShipColumn]=3;
+	            secondСoordinateTwoCellShip=playingField[secondСoordinateTwoCellShipRow][secondСoordinateTwoCellShipColumn];
+	        }
+	    }
 	    
 	    for(int i=0; i<playingField.length; i++){
 	        for(int j=0; j<playingField[i].length; j++){

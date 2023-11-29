@@ -184,6 +184,16 @@ public class Main
 	        
 	        
 	    }
+		int firstСoordinateTwoCellShipRow = startOfRange + (int)(Math.random() * (endOfRange - startOfRange + 1));
+		int firstСoordinateTwoCellShipColumn = startOfRange + (int)(Math.random() * (endOfRange - startOfRange + 1));
+		while(playingField[firstСoordinateTwoCellShipRow][firstСoordinateTwoCellShipColumn]!=0){
+		    firstСoordinateTwoCellShipRow = startOfRange + (int)(Math.random() * (endOfRange - startOfRange + 1));
+		    firstСoordinateTwoCellShipColumn = startOfRange + (int)(Math.random() * (endOfRange - startOfRange + 1));
+		    
+		}
+		if(playingField[firstСoordinateTwoCellShipRow][firstСoordinateTwoCellShipColumn]==0){
+		        playingField[firstСoordinateTwoCellShipRow][firstСoordinateTwoCellShipColumn]=3;
+		}
 	    
 	    for(int i=0; i<playingField.length; i++){
 	        for(int j=0; j<playingField[i].length; j++){

@@ -108,6 +108,45 @@ public class Main
 	            thirdСoordinateThreeCellShip=playingField[thirdСoordinateThreeCellShipRow][thirdСoordinateThreeCellShipColumn];
 	        }
 	    }
+		 if(verticalOrHorizontal==1){
+	        for (int i=-1; i<=1; i++){
+	            for(int j=-1; j<=1; j++){
+	                int firstRow=firstСoordinateThreeCellShipRow+i;
+	                int firstColumn=firstСoordinateThreeCellShipColumn+j;
+	                int secondRow=secondСoordinateThreeCellShipRow+i;
+	                int secondColumn=secondСoordinateThreeCellShipColumn+j;
+	                int thirdRow=thirdСoordinateThreeCellShipRow+i;
+	                int thirdColumn=thirdСoordinateThreeCellShipColumn+j;
+	                if(firstRow>=0 && firstRow<7 && firstColumn>=0 && firstColumn<7 && secondRow>=0 && secondRow<7 && secondColumn>=0 && secondColumn<7 && thirdRow>=0 && thirdRow<7 && thirdColumn>=0 && thirdColumn<7 && playingField[firstRow][firstColumn]!=5 && playingField[secondRow][secondColumn]!=5 && playingField[thirdRow][thirdColumn]!=5){
+	                    playingField[firstRow][firstColumn]=1;
+	                    playingField[secondRow][secondColumn]=1;
+	                    playingField[thirdRow][thirdColumn]=1;
+	                }
+	                
+	            }
+	        }
+	        for(int i=-1; i<=1; i++){
+	            int firstColumn1 = firstСoordinateThreeCellShipColumn+i;
+	            if(firstColumn1>=0 && firstColumn1<7 && playingField[firstСoordinateThreeCellShipRow][firstColumn1]!=5){
+	                playingField[firstСoordinateThreeCellShipRow][firstColumn1]=1;
+	                
+	            }
+	        }
+	        for(int i=-1; i<=1; i++){
+	            int secondColumn1 = secondСoordinateThreeCellShipColumn+i;
+	            if(secondColumn1>=0 && secondColumn1<7 && playingField[secondСoordinateThreeCellShipRow][secondColumn1]!=5){
+	                playingField[secondСoordinateThreeCellShipRow][secondColumn1]=1;
+	            }
+	        }
+	        for(int i=-1; i<=1; i++){
+	            int thirdColumn1 = thirdСoordinateThreeCellShipColumn+i;
+	            if(thirdColumn1>=0 && thirdColumn1<7 && playingField[thirdСoordinateThreeCellShipRow][thirdColumn1]!=5){
+	                playingField[thirdСoordinateThreeCellShipRow][thirdColumn1]=1;
+	            }
+	        }
+	        
+	        
+	    }
 	    
 	    for(int i=0; i<playingField.length; i++){
 	        for(int j=0; j<playingField[i].length; j++){

@@ -1,8 +1,11 @@
 import java.util.Scanner;
+import java.util.ArrayList;
+import java.util.Random;
 public class Main
 {
 	public static void main(String[] args) {
 		Scanner scanner = new Scanner(System.in);
+		Random random = new Random();
 		System.out.print("Enter your name: ");
 		String playerName = scanner.nextLine();
 		playerGreeting(playerName);
@@ -22,8 +25,7 @@ public class Main
 		int firstСoordinateThreeCellShipColumn = startOfRange + (int)(Math.random() * (endOfRange - startOfRange + 1));
 		int a=firstСoordinateThreeCellShipRow;
 		int b=firstСoordinateThreeCellShipColumn;
-		System.out.println(firstСoordinateThreeCellShipRow);
-	    System.out.println(firstСoordinateThreeCellShipColumn);
+		
 		for (int i=0; i<7; i++){
 	        for(int j=0; j<7; j++){
 	            playingField[firstСoordinateThreeCellShipRow][firstСoordinateThreeCellShipColumn]=5;
@@ -33,7 +35,7 @@ public class Main
 	    int startOfRange1=1;
 	    int endOfRange1=2;
 	    int verticalOrHorizontal=startOfRange1 + (int)(Math.random() * (endOfRange1 - startOfRange1 + 1));
-	    System.out.println(verticalOrHorizontal);
+	    
 	    int secondСoordinateThreeCellShipRow=0;
 		int secondСoordinateThreeCellShipColumn=0;
 	    if(verticalOrHorizontal==1){
@@ -58,8 +60,7 @@ public class Main
 	    }
 	    int c=secondСoordinateThreeCellShipRow;
 	    int d=secondСoordinateThreeCellShipColumn;
-	    System.out.println(secondСoordinateThreeCellShipRow);
-	    System.out.println(secondСoordinateThreeCellShipColumn);
+	    
 	    int secondСoordinateThreeCellShip=playingField[0][0];
 	    for (int i=0; i<7; i++){
 	        for(int j=0; j<7; j++){
@@ -74,7 +75,7 @@ public class Main
 	            thirdСoordinateThreeCellShipRow=firstСoordinateThreeCellShipRow;
 	            thirdСoordinateThreeCellShipColumn=secondСoordinateThreeCellShipColumn-1;
 	        }
-	        if(d==6){
+	        else if(d==6){
 	            thirdСoordinateThreeCellShipRow=firstСoordinateThreeCellShipRow;
 	            thirdСoordinateThreeCellShipColumn=firstСoordinateThreeCellShipColumn-1;
 	        }
@@ -88,7 +89,7 @@ public class Main
 	            thirdСoordinateThreeCellShipColumn=firstСoordinateThreeCellShipColumn;
 	            thirdСoordinateThreeCellShipRow=secondСoordinateThreeCellShipRow-1;
 	        }
-	        if(c==6){
+	        else if(c==6){
 	            thirdСoordinateThreeCellShipColumn=firstСoordinateThreeCellShipColumn;
 	            thirdСoordinateThreeCellShipRow=firstСoordinateThreeCellShipRow-1;
 	        }
@@ -99,8 +100,7 @@ public class Main
 	    }
 	    
 	    
-	    System.out.println(thirdСoordinateThreeCellShipRow);
-	    System.out.println(thirdСoordinateThreeCellShipColumn);
+	    
 	    int thirdСoordinateThreeCellShip=playingField[0][0];
 	    for (int i=0; i<7; i++){
 	        for(int j=0; j<7; j++){
@@ -108,7 +108,7 @@ public class Main
 	            thirdСoordinateThreeCellShip=playingField[thirdСoordinateThreeCellShipRow][thirdСoordinateThreeCellShipColumn];
 	        }
 	    }
-		 if(verticalOrHorizontal==1){
+	    if(verticalOrHorizontal==1){
 	        for (int i=-1; i<=1; i++){
 	            for(int j=-1; j<=1; j++){
 	                int firstRow=firstСoordinateThreeCellShipRow+i;
@@ -144,8 +144,10 @@ public class Main
 	                playingField[thirdСoordinateThreeCellShipRow][thirdColumn1]=1;
 	            }
 	        }
-
-			if(verticalOrHorizontal==2){
+	        
+	        
+	    }
+	    if(verticalOrHorizontal==2){
 	        for (int i=-1; i<=1; i++){
 	            for(int j=-1; j<=1; j++){
 	                int firstRow=firstСoordinateThreeCellShipRow+i;
@@ -181,54 +183,62 @@ public class Main
 	            }
 	        }
 	    }
-	        
-	        
-	    }
-		int firstСoordinateTwoCellShipRow = startOfRange + (int)(Math.random() * (endOfRange - startOfRange + 1));
-		int firstСoordinateTwoCellShipColumn = startOfRange + (int)(Math.random() * (endOfRange - startOfRange + 1));
-		while(playingField[firstСoordinateTwoCellShipRow][firstСoordinateTwoCellShipColumn]!=0){
-		    firstСoordinateTwoCellShipRow = startOfRange + (int)(Math.random() * (endOfRange - startOfRange + 1));
-		    firstСoordinateTwoCellShipColumn = startOfRange + (int)(Math.random() * (endOfRange - startOfRange + 1));
-		    
-		}
-		if(playingField[firstСoordinateTwoCellShipRow][firstСoordinateTwoCellShipColumn]==0){
-		        playingField[firstСoordinateTwoCellShipRow][firstСoordinateTwoCellShipColumn]=3;
-		}
-
-		int secondСoordinateTwoCellShipRow = startOfRange + (int)(Math.random() * (endOfRange - startOfRange + 1));
-		int secondСoordinateTwoCellShipColumn = startOfRange + (int)(Math.random() * (endOfRange - startOfRange + 1));
-		int e=firstСoordinateTwoCellShipColumn;
-		int f=firstСoordinateTwoCellShipRow;
-		if((verticalOrHorizontal==1)&&(playingField[firstСoordinateTwoCellShipRow][firstСoordinateTwoCellShipColumn+1]==0||playingField[firstСoordinateTwoCellShipRow][firstСoordinateTwoCellShipColumn-1]==0)){
-	        if(b==6){
-	            secondСoordinateTwoCellShipRow=firstСoordinateTwoCellShipRow;
-	            secondСoordinateTwoCellShipColumn=firstСoordinateTwoCellShipColumn-1;
+	    ArrayList<Integer> array = new ArrayList<Integer>();
+	    int verticalOrHorizontal1=startOfRange1 + (int)(Math.random() * (endOfRange1 - startOfRange1 + 1));
+	    System.out.println(verticalOrHorizontal1);
+	    if(verticalOrHorizontal1==1){
+	        for(int i=0; i<6; i++){
+	            for(int j=0; j<6; j++){
+	                if(playingField[i][j]==0&&playingField[i][j+1]==0){
+	                    int secondСoordinateTwoCellShipRow=i;
+	                    array.add(secondСoordinateTwoCellShipRow);
+	                }
+	            }
 	        }
-	        else{
-	            secondСoordinateTwoCellShipRow=firstСoordinateTwoCellShipRow;
-	            secondСoordinateTwoCellShipColumn=firstСoordinateTwoCellShipColumn+1;
-	        }
+	        int q=0;
+	        for(int i=0; i<array.size(); i++){
+		         q++;
+		    }
+		    int secondСoordinateTwoCellShipRow=array.get(random.nextInt(q));
+		    System.out.println(secondСoordinateTwoCellShipRow);
+		    int secondСoordinateTwoCellShipColumn = 0;
+		    for(int k =0; k<6; k++){
+		        if(playingField[secondСoordinateTwoCellShipRow][k]==0&&playingField[secondСoordinateTwoCellShipRow][k+1]==0){
+		            secondСoordinateTwoCellShipColumn = k;
+		        }
+		    }
+		    playingField[secondСoordinateTwoCellShipRow][secondСoordinateTwoCellShipColumn]=5;
+		    playingField[secondСoordinateTwoCellShipRow][secondСoordinateTwoCellShipColumn+1]=5;
 	    }
-	    else{
-	        verticalOrHorizontal=2;
-	    }
-	    if((verticalOrHorizontal==2)&&(playingField[firstСoordinateTwoCellShipRow-1][firstСoordinateTwoCellShipColumn]==0||playingField[firstСoordinateTwoCellShipRow+1][firstСoordinateTwoCellShipColumn]==0)){
-	        if(f==6){
-	            secondСoordinateTwoCellShipColumn=firstСoordinateTwoCellShipColumn;
-	            secondСoordinateTwoCellShipRow=firstСoordinateTwoCellShipRow-1;
+	    
+	    if(verticalOrHorizontal1==2){
+	        for(int i=0; i<6; i++){
+	            for(int j=0; j<6; j++){
+	                if(playingField[i][j]==0&&playingField[i+1][j]==0){
+	                    int secondСoordinateTwoCellShipColumn = j;
+	                    array.add(secondСoordinateTwoCellShipColumn);
+	                }
+	            }
 	        }
-	        else{
-	            secondСoordinateTwoCellShipColumn=firstСoordinateTwoCellShipColumn;
-	            secondСoordinateTwoCellShipRow=firstСoordinateTwoCellShipRow+1;
-	        }
+	        int q=0;
+	        for(int i=0; i<array.size(); i++){
+		         q++;
+		    }
+		    int secondСoordinateTwoCellShipColumn=array.get(random.nextInt(q));
+		    int secondСoordinateTwoCellShipRow=0;
+		    for(int x=0; x<6; x++){
+		        if(playingField[x][secondСoordinateTwoCellShipColumn]==0&&playingField[x+1][secondСoordinateTwoCellShipColumn]==0){
+		            secondСoordinateTwoCellShipRow=x;
+		        }
+		    }
+		    playingField[secondСoordinateTwoCellShipRow][secondСoordinateTwoCellShipColumn]=5;
+		    playingField[secondСoordinateTwoCellShipRow+1][secondСoordinateTwoCellShipColumn]=5;
 	    }
-	    int secondСoordinateTwoCellShip=playingField[0][0];
-	    for (int i=0; i<7; i++){
-	        for(int j=0; j<7; j++){
-	            playingField[secondСoordinateTwoCellShipRow][secondСoordinateTwoCellShipColumn]=3;
-	            secondСoordinateTwoCellShip=playingField[secondСoordinateTwoCellShipRow][secondСoordinateTwoCellShipColumn];
-	        }
-	    }
+	    
+	    
+	    
+	    
+	    
 	    
 	    for(int i=0; i<playingField.length; i++){
 	        for(int j=0; j<playingField[i].length; j++){
@@ -237,8 +247,8 @@ public class Main
 	        System.out.println();
 	    }
 	    
-		
-		
+	    
+
 
 	}
 	public static void playerGreeting(String playerName){

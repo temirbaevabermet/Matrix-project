@@ -186,6 +186,10 @@ public class Main
 	    ArrayList<Integer> array = new ArrayList<Integer>();
 	    int verticalOrHorizontal1=startOfRange1 + (int)(Math.random() * (endOfRange1 - startOfRange1 + 1));
 	    System.out.println(verticalOrHorizontal1);
+	    int v=0;
+	    int z=0;
+	    int u=0;
+	    int g=0;
 	    if(verticalOrHorizontal1==1){
 	        for(int i=0; i<6; i++){
 	            for(int j=0; j<6; j++){
@@ -209,6 +213,10 @@ public class Main
 		    }
 		    playingField[secondСoordinateTwoCellShipRow][secondСoordinateTwoCellShipColumn]=5;
 		    playingField[secondСoordinateTwoCellShipRow][secondСoordinateTwoCellShipColumn+1]=5;
+		    v = secondСoordinateTwoCellShipRow;
+		    z = secondСoordinateTwoCellShipColumn;
+		    u = secondСoordinateTwoCellShipRow;
+		    g = secondСoordinateTwoCellShipColumn+1;
 	    }
 	    
 	    if(verticalOrHorizontal1==2){
@@ -233,13 +241,68 @@ public class Main
 		    }
 		    playingField[secondСoordinateTwoCellShipRow][secondСoordinateTwoCellShipColumn]=5;
 		    playingField[secondСoordinateTwoCellShipRow+1][secondСoordinateTwoCellShipColumn]=5;
+		    v=secondСoordinateTwoCellShipRow;
+		    z=secondСoordinateTwoCellShipColumn;
+		    u=secondСoordinateTwoCellShipRow+1;
+		    g=secondСoordinateTwoCellShipColumn;
 	    }
-	    
-	    
-	    
-	    
-	    
-	    
+	    if(verticalOrHorizontal1==1){
+	        for (int i=-1; i<=1; i++){
+	            for(int j=-1; j<=1; j++){
+	                int firstRow=v+i;
+	                int firstColumn=z+j;
+	                int secondRow=u+i;
+	                int secondColumn=g+j;
+	                if(firstRow>=0 && firstRow<7 && firstColumn>=0 && firstColumn<7 && secondRow>=0 && secondRow<7 && secondColumn>=0 && secondColumn<7  && playingField[firstRow][firstColumn]!=5 && playingField[secondRow][secondColumn]!=5){
+	                    playingField[firstRow][firstColumn]=1;
+	                    playingField[secondRow][secondColumn]=1;
+	                }
+	                
+	            }
+	        }
+	        for(int i=-1; i<=1; i++){
+	            int firstColumn1 = z+i;
+	            if(firstColumn1>=0 && firstColumn1<7 && playingField[v][firstColumn1]!=5){
+	                playingField[v][firstColumn1]=1;
+	                
+	            }
+	        }
+	        for(int i=-1; i<=1; i++){
+	            int secondColumn1 = g+i;
+	            if(secondColumn1>=0 && secondColumn1<7 && playingField[u][secondColumn1]!=5){
+	                playingField[u][secondColumn1]=1;
+	            }
+	        }
+	    }
+	 
+	    if(verticalOrHorizontal1==2){
+	        for (int i=-1; i<=1; i++){
+	            for(int j=-1; j<=1; j++){
+	                int firstRow=v+i;
+	                int firstColumn=z+j;
+	                int secondRow=u+i;
+	                int secondColumn=g+j;
+	                if(firstRow>=0 && firstRow<7 && firstColumn>=0 && firstColumn<7 && secondRow>=0 && secondRow<7 && secondColumn>=0 && secondColumn<7 &&  playingField[firstRow][firstColumn]!=5 && playingField[secondRow][secondColumn]!=5 ){
+	                    playingField[firstRow][firstColumn]=1;
+	                    playingField[secondRow][secondColumn]=1;
+	                }
+	                
+	            }
+	        }
+	        for(int i=-1; i<=1; i++){
+	            int firstRow1 = v+i;
+	            if(firstRow1>=0 && firstRow1<7 && playingField[firstRow1][z]!=5){
+	                playingField[firstRow1][z]=1;
+	            }
+	        }
+	        for(int i=-1; i<=1; i++){
+	            int secondRow1 = u+i;
+	            if(secondRow1>=0 && secondRow1<7 && playingField[secondRow1][g]!=5){
+	                playingField[secondRow1][g]=1;
+	            }
+	        }
+	    }
+	  
 	    for(int i=0; i<playingField.length; i++){
 	        for(int j=0; j<playingField[i].length; j++){
 	            System.out.print(playingField[i][j]+" ");

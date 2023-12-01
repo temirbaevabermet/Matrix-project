@@ -5,18 +5,120 @@ public class Main
 {
 	public static void main(String[] args) {
 		Scanner scanner = new Scanner(System.in);
-		Random random = new Random();
-		System.out.print("Enter your name: ");
-		String playerName = scanner.nextLine();
-		playerGreeting(playerName);
+		System.out.println("Do you want to start new game?(yes/no) ");
+		String answer = scanner.nextLine();
+		while(answer=="yes"){
+		    
+		    
+		    int[][] playingField = {{0,0,0,0,0,0,0},{0,0,0,0,0,0,0},{0,0,0,0,0,0,0},{0,0,0,0,0,0,0},{0,0,0,0,0,0,0},{0,0,0,0,0,0,0},{0,0,0,0,0,0,0}};
+		    int[][] playingField1 = {{0,0,0,0,0,0,0},{0,0,0,0,0,0,0},{0,0,0,0,0,0,0},{0,0,0,0,0,0,0},{0,0,0,0,0,0,0},{0,0,0,0,0,0,0},{0,0,0,0,0,0,0}};
+		    System.out.print("Enter your name: ");
+		    String playerName = scanner.nextLine();
+		    playerGreeting(playerName);
+		    shipsCoordinates(playingField);
+		    int o=0;
+		    System.out.print("Enter the first coordinate [0;6] : ");
+		    int x = scanner.nextInt();
+		    System.out.print("Enter the second coordinate [0;6] : ");
+		    int y = scanner.nextInt();
+		    while(o!=11){
+		        if(playingField[x][y]!=5 && playingField[x][y]!=3 && playingField[x][y]!=2){
+		            System.out.println("1-miss, 2-hit, 3-sunk");
+		            playingField1[x][y]=1;
+		            for(int i=0; i<playingField1.length; i++){
+	                    for(int j=0; j<playingField1[i].length; j++){
+	                        System.out.print(playingField1[i][j]+" ");
+	                    }
+	                    System.out.println();
+	                }
+	                System.out.print("Enter the first coordinate [0;6] : ");
+		            x = scanner.nextInt();
+		            System.out.print("Enter the second coordinate [0;6] : ");
+		            y = scanner.nextInt();
+		            System.out.print("\033[H\033[2J");
+	  
+		        }
 		
-		int[][] playingField = {{0,0,0,0,0,0,0},
-		                        {0,0,0,0,0,0,0},
-		                        {0,0,0,0,0,0,0},
-		                        {0,0,0,0,0,0,0},
-		                        {0,0,0,0,0,0,0},
-		                        {0,0,0,0,0,0,0},
-		                        {0,0,0,0,0,0,0}};
+		
+		        else {
+		            if(playingField[x][y]==5){
+    		            playingField[x][y]=8;
+    		            for(int i=-2; i<=2; i++){
+    		                for(int j=-2; j<=2; j++){
+    		                    int row = x+i;
+    		                    int column = y+j;
+    		                    if(row>=0&&row<7&&column>=0&&column<7&&playingField[row][column]==5){
+    		                        playingField1[x][y]=2;
+    		                    }
+    		                }
+    		            }
+    		        }
+		        else {
+		            playingField[x][y]=8;
+		            for(int i=-1; i<=1; i++){
+		                for(int j=-1; j<=1; j++ ){
+		                    int row=x+i;
+		                    int column=y+j;
+		                    if(row>=0&&row<7&&column>=0&&column<7&&playingField[row][column]==3){
+		                        playingField1[x][y]=2;
+		                    }
+		                }
+		            }
+		        }
+		        if(playingField1[x][y]==2){
+		    
+		            System.out.println("1-miss, 2-hit, 3-sunk");
+		            for(int i=0; i<playingField1.length; i++){
+	                    for(int j=0; j<playingField1[i].length; j++){
+	                        System.out.print(playingField1[i][j]+" ");
+	                    }
+	                    System.out.println();
+	                }
+	                System.out.print("Enter the first coordinate [0;6] : ");
+		            x = scanner.nextInt();
+		            System.out.print("Enter the second coordinate [0;6] : ");
+		            y = scanner.nextInt();
+		            System.out.print("\033[H\033[2J");
+		        }
+		    
+		        else{
+		            playingField1[x][y]=3;
+		            System.out.println("1-miss, 2-hit, 3-sunk");
+		            for(int i=0; i<playingField1.length; i++){
+	                    for(int j=0; j<playingField1[i].length; j++){
+	                        System.out.print(playingField1[i][j]+" ");
+	                    }
+	                    System.out.println();
+	                }
+	                System.out.print("Enter the first coordinate [0;6] : ");
+		            x = scanner.nextInt();
+		            System.out.print("Enter the second coordinate [0;6] : ");
+		            y = scanner.nextInt();
+		            System.out.print("\033[H\033[2J");
+
+		        }
+		        o++;
+		        }
+		        
+		        
+		        
+		    }
+		        
+		        System.out.println("Congratulations on your victory! You sank all the ships!");
+		        System.out.println("Do you want to start new game?(yes/no) ");
+		        answer = scanner.nextLine();
+		        
+		}
+		
+
+	    
+	}
+	public static void playerGreeting(String playerName){
+	    System.out.println("Hello,"+playerName+"! Let's start our sea battle!");
+	}
+	static int[][] shipsCoordinates(int[][] playingField){
+	    Random random = new Random();
+	    
 		
 		int startOfRange=0;
 		int endOfRange=6;
@@ -211,8 +313,8 @@ public class Main
 		                secondСoordinateTwoCellShipColumn = k;
 		            }
 		        }
-		        playingField[secondСoordinateTwoCellShipRow][secondСoordinateTwoCellShipColumn]=5;
-		        playingField[secondСoordinateTwoCellShipRow][secondСoordinateTwoCellShipColumn+1]=5;
+		        playingField[secondСoordinateTwoCellShipRow][secondСoordinateTwoCellShipColumn]=3;
+		        playingField[secondСoordinateTwoCellShipRow][secondСoordinateTwoCellShipColumn+1]=3;
 		        v = secondСoordinateTwoCellShipRow;
 		        z = secondСoordinateTwoCellShipColumn;
 		        u = secondСoordinateTwoCellShipRow;
@@ -239,8 +341,8 @@ public class Main
 		            secondСoordinateTwoCellShipRow=x;
 		        }
 		    }
-		    playingField[secondСoordinateTwoCellShipRow][secondСoordinateTwoCellShipColumn]=5;
-		    playingField[secondСoordinateTwoCellShipRow+1][secondСoordinateTwoCellShipColumn]=5;
+		    playingField[secondСoordinateTwoCellShipRow][secondСoordinateTwoCellShipColumn]=3;
+		    playingField[secondСoordinateTwoCellShipRow+1][secondСoordinateTwoCellShipColumn]=3;
 		    v=secondСoordinateTwoCellShipRow;
 		    z=secondСoordinateTwoCellShipColumn;
 		    u=secondСoordinateTwoCellShipRow+1;
@@ -253,7 +355,7 @@ public class Main
 	                    int firstColumn=z+j;
 	                    int secondRow=u+i;
 	                    int secondColumn=g+j;
-	                    if(firstRow>=0 && firstRow<7 && firstColumn>=0 && firstColumn<7 && secondRow>=0 && secondRow<7 && secondColumn>=0 && secondColumn<7  && playingField[firstRow][firstColumn]!=5 && playingField[secondRow][secondColumn]!=5){
+	                    if(firstRow>=0 && firstRow<7 && firstColumn>=0 && firstColumn<7 && secondRow>=0 && secondRow<7 && secondColumn>=0 && secondColumn<7  && playingField[firstRow][firstColumn]!=3 && playingField[secondRow][secondColumn]!=3 && playingField[firstRow][firstColumn]!=5 && playingField[secondRow][secondColumn]!=5){
 	                        playingField[firstRow][firstColumn]=1;
 	                        playingField[secondRow][secondColumn]=1;
 	                    }
@@ -262,14 +364,14 @@ public class Main
 	            }
 	            for(int i=-1; i<=1; i++){
 	                int firstColumn1 = z+i;
-	                if(firstColumn1>=0 && firstColumn1<7 && playingField[v][firstColumn1]!=5){
+	                if(firstColumn1>=0 && firstColumn1<7 && playingField[v][firstColumn1]!=3){
 	                playingField[v][firstColumn1]=1;
 	                
 	                }
 	            }
 	            for(int i=-1; i<=1; i++){
 	                int secondColumn1 = g+i;
-	                if(secondColumn1>=0 && secondColumn1<7 && playingField[u][secondColumn1]!=5){
+	                if(secondColumn1>=0 && secondColumn1<7 && playingField[u][secondColumn1]!=3){
 	                playingField[u][secondColumn1]=1;
 	                }
 	            }
@@ -282,7 +384,7 @@ public class Main
 	                    int firstColumn=z+j;
 	                    int secondRow=u+i;
 	                    int secondColumn=g+j;
-	                    if(firstRow>=0 && firstRow<7 && firstColumn>=0 && firstColumn<7 && secondRow>=0 && secondRow<7 && secondColumn>=0 && secondColumn<7 &&  playingField[firstRow][firstColumn]!=5 && playingField[secondRow][secondColumn]!=5 ){
+	                    if(firstRow>=0 && firstRow<7 && firstColumn>=0 && firstColumn<7 && secondRow>=0 && secondRow<7 && secondColumn>=0 && secondColumn<7 &&  playingField[firstRow][firstColumn]!=3 && playingField[secondRow][secondColumn]!=3 ){
 	                    playingField[firstRow][firstColumn]=1;
 	                    playingField[secondRow][secondColumn]=1;
 	                    }
@@ -291,13 +393,13 @@ public class Main
 	            }
 	            for(int i=-1; i<=1; i++){
 	                int firstRow1 = v+i;
-	                if(firstRow1>=0 && firstRow1<7 && playingField[firstRow1][z]!=5){
+	                if(firstRow1>=0 && firstRow1<7 && playingField[firstRow1][z]!=3){
 	                    playingField[firstRow1][z]=1;
 	                }
 	            }
 	            for(int i=-1; i<=1; i++){
 	                int secondRow1 = u+i;
-	                if(secondRow1>=0 && secondRow1<7 && playingField[secondRow1][g]!=5){
+	                if(secondRow1>=0 && secondRow1<7 && playingField[secondRow1][g]!=3){
 	                    playingField[secondRow1][g]=1;
 	                }
 	            }
@@ -330,14 +432,14 @@ public class Main
 		            oneCellShipColumn = k;
 		        }
 		    }
-		    playingField[oneCellShipRow][oneCellShipColumn]=5;
+		    playingField[oneCellShipRow][oneCellShipColumn]=2;
 		    m=oneCellShipRow;
 		    n=oneCellShipColumn;
 	        for (int i=-1; i<=1; i++){
 	            for(int j=-1; j<=1; j++){
 	                int firstRow=m+i;
 	                int firstColumn=n+j;
-	                if(firstRow>=0 && firstRow<7 && firstColumn>=0 && firstColumn<7 && playingField[firstRow][firstColumn]!=5 ){
+	                if(firstRow>=0 && firstRow<7 && firstColumn>=0 && firstColumn<7 && playingField[firstRow][firstColumn]!=2 ){
 	                    playingField[firstRow][firstColumn]=1;
 	                }
 	                
@@ -347,17 +449,14 @@ public class Main
 	        array1.clear();
 	    }
 	    
-	  
-	    for(int i=0; i<playingField.length; i++){
+		for(int i=0; i<playingField.length; i++){
 	        for(int j=0; j<playingField[i].length; j++){
 	            System.out.print(playingField[i][j]+" ");
 	        }
 	        System.out.println();
 	    }
-	    
-
-	}
-	public static void playerGreeting(String playerName){
-	    System.out.println("Hello,"+playerName+"! Let's start our sea battle!");
+	
+	    return playingField;
 	}
 }
+
